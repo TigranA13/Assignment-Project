@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "mock:server": "npx json-server --watch db.json",
-    "start:proxy": "ng serve --proxy-config proxy.config.json",
+    "start:proxy": "ng serve -o --proxy-config proxy.config.json",
     "start:proxy:mock:server": "concurrently --kill-others \"npm run mock:server\" \"npm run start:proxy\""
   },
   "private": true,
