@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>{{data.type === 'add' ? 'Add new' : 'Edit'}} field</h2>
+<mat-dialog-content>
+  <form *ngIf="form" class="add-edit-form" [formGroup]="form">
+
+    <!--  Label Field  -->
+    <mat-form-field appearance="fill">
+      <mat-label>Label</mat-label>
+      <input matInput type="text" formControlName="label">
+      <mat-error *ngIf="form.get('label')?.hasError('required')">
+        Label is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  Type Field  -->
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type.id">{{type.name}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('type')?.hasError('required')">
+        Type is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <!--  Required toggle btn  -->
+    <mat-slide-toggle color="primary" formControlName="required">Required</mat-slide-toggle>
+
+    <!--  Visible toggle btn  -->
+    <mat-slide-toggle color="primary" formControlName="visible">Visible</mat-slide-toggle>
+
+    <!--  Rows Field  -->
+    <mat-form-field appearance="fill" *ngIf="form.get('type')?.value === 2">
+      <mat-label>Rows</mat-label>
+      <input matInput type="number" formControlName="rows">
+      <mat-error *ngIf="form.get('rows')?.hasError('required')">
+        Rows is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button tabindex="-1" mat-button type="button" (click)="close()">Cancel</button>
+  <button tabindex="-1" mat-button type="submit" color="primary" (click)="submit()">Ok</button>
+</mat-dialog-actions>

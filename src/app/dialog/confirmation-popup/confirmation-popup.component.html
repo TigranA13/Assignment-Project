@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Confirmation</h2>
+<mat-dialog-content>
+  Are you sure you want to delete row with label "{{data.message}}" ?
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button tabindex="-1" mat-button (click)="close()">Cancel</button>
+  <button tabindex="-1" mat-button (click)="submit()" [ngStyle]="{'color': '#d32f2f'}">Delete</button>
+</mat-dialog-actions>

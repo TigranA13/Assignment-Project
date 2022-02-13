@@ -1,0 +1,42 @@
+<div class="configure_wrapper">
+  <button mat-button class="add_btn" color="primary" (click)="addEditFiled('add')">
+    Add new field
+    <mat-icon>add</mat-icon>
+  </button>
+  <div class="example-container mat-elevation-z5">
+    <table mat-table [dataSource]="dataSource">
+
+      <!-- Label Column -->
+      <ng-container matColumnDef="label">
+        <th mat-header-cell *matHeaderCellDef> Label </th>
+        <td mat-cell *matCellDef="let element"> {{element.details.label}} </td>
+      </ng-container>
+
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="addEditFiled('edit', element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button class="delete_btn" (click)="deleteRow(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ng-container *ngIf="!dataSource.length">
+      <h2 class="noData">No Data Found</h2>
+    </ng-container>
+  </div>
+</div>
+

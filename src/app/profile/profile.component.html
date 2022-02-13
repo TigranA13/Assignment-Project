@@ -1,0 +1,4 @@
+<app-dynamic-form *ngIf="fields.length; else notFound" [fields]="fields" (submit)="submit($event)"></app-dynamic-form>
+<ng-template #notFound>
+  <h3>Fields are not configured</h3>
+</ng-template>

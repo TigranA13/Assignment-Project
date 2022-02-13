@@ -1,0 +1,32 @@
+{
+  "configs": [
+    {
+      "id": 1,
+      "type": "NAME",
+      "details": {
+        "label": "Full Name",
+        "required": false,
+        "visible": true
+      }
+    },
+    {
+      "id": 2,
+      "type": "TEXT",
+      "details": {
+        "label": "About you",
+        "required": false,
+        "visible": true,
+        "rows": 10
+      }
+    },
+    {
+      "id": 3,
+      "type": "LINK",
+      "details": {
+        "label": "LinkedIn Profile",
+        "required": false,
+        "visible": true
+      }
+    }
+  ]
+}
